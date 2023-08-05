@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Promise...</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 100px;
+      }
+
+      .loading {
+        display: none;
+        width: 40px;
+        border: #0000ff 5px solid;
+        height: 40px;
+        border-radius: 50%;
+        position: relative;
+        animation: load 0.5s infinite linear;
+      }
+
+      .visible {
+        display: block !important;
+      }
+
+      @keyframes load {
+        from {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        background-color: #fff;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+      }
+
+      #text {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btn">Click me!</button>
+    <div class="loading" id="load"></div>
+    <p id="text">Hey!</p>
+    <script src="awaitLoad.js">
+    </script>
+  </body>
+</html>
